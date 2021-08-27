@@ -28,6 +28,7 @@ jobs:
         #
         # github.sha - The commit SHA that triggered the workflow run
         docker_image_tag: ${{ github.sha }}
+        requirements_file: 'actions/requirements.txt'
         
     # This step shows only the example of output parameter usage
     # and it's not focused on deployment itself.
