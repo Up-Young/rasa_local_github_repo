@@ -11,7 +11,7 @@ jobs:
     name: Build Action Server image and upgrade Rasa X deployment
     steps:
     - name: Checkout repository
-      uses: actions/*
+      uses: Up-Young/rasa_local_github_repo@master
 
     - id: action_server
       name: Build an action server with a custom actions
