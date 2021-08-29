@@ -10,8 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     name: Build Action Server image and upgrade Rasa X deployment
     steps:
-    - name: Checkout repository
-      uses: Up-Young/rasa_local_github_repo@main
+#    - name: Checkout repository
+#      uses: Up-Young/rasa_local_github_repo@main
 
     - id: action_server
       name: Build an action server with a custom actions
@@ -26,3 +26,4 @@ jobs:
         #
         # github.sha - The commit SHA that triggered the workflow run
         docker_image_tag: ${{ github.sha }}
+        requirements_file: './requirements.txt'
