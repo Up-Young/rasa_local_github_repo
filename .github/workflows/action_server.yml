@@ -15,7 +15,7 @@ jobs:
 
     - id: action_server
       name: Build an action server with a custom actions
-      uses: Up-Young/rasa_local_github_repo@main
+      uses: actions/checkout@v2
       # Full list of parameters: https://github.com/RasaHQ/action-server-gha/tree/master#input-arguments
       with:
         docker_image_name: 'yangyoungyoung/rasa_local_docker_repo'
