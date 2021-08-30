@@ -14,15 +14,16 @@ jobs:
 #    仓库检查
     - name: Checkout repository
       uses: actions/checkout@v2
+
 #    生成仓库tag
     - name: Generate build ID
       id: prep
       run: |
           branch=${GITHUB_REF##*/}
           sha=${GITHUB_SHA::8}
-          ts=$(date +%s)
+          ts=$(date +%Y_%m_%d_%s)
           echo "::set-output name=BUILD_ID::${branch}-${sha}-${ts}"
-
+#构建并推送镜像到指定dockerhub仓库
     - name: Build an action server
       uses: RasaHQ/rasa-action-server-gha@main
       with:
