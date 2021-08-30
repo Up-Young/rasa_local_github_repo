@@ -26,7 +26,6 @@
 #        #
 #        # github.sha - The commit SHA that triggered the workflow run
 #        docker_image_tag: ${{ github.sha }}
-##        requirements_file: './requirements.txt'
 
 on:
   push:
@@ -48,13 +47,15 @@ jobs:
       with:
         docker_registry_login: ${{ secrets.DOCKER_HUB_LOGIN }}
         docker_registry_password: ${{ secrets.DOCKER_HUB_PASSWORD }}
-        docker_image_name: 'yangyoungyoung/rasa_local_docker_repo'
+        docker_image_name: 'action_server'
         # More details on how to use GitHub secrets:
         # https://docs.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets
 
         # More details about github context:
         # https://docs.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions#github-context
         docker_image_tag: ${{ github.sha }}
+        requirements_file: 'actions/requirements.txt'
+
 
 #    - name: Build an action server
 #      uses: ./
