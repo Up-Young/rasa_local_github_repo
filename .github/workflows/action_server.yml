@@ -16,14 +16,15 @@ jobs:
       uses: actions/checkout@v2
 
 #    生成仓库tag
-    - name: Generate build ID
-      id: prep
-      run: |
-          branch=${GITHUB_REF##*/}
-          sha=${GITHUB_SHA::8}
-          ts=$(date +%Y_%m_%d_%s)
-          echo "::set-output name=BUILD_ID::${branch}-${sha}-${ts}"
-#构建并推送镜像到指定dockerhub仓库
+#    - name: Generate build ID
+#      id: prep
+#      run: |
+#          branch=${GITHUB_REF##*/}
+#          sha=${GITHUB_SHA::8}
+#          ts=$(date +%Y_%m_%d_%s)
+#          echo "::set-output name=BUILD_ID::${branch}-${sha}-${ts}"
+#
+    #构建并推送镜像到指定dockerhub仓库
     - name: Build an action server
       uses: RasaHQ/rasa-action-server-gha@main
       with:
@@ -35,6 +36,6 @@ jobs:
 
         # More details about github context:
         # https://docs.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions#github-context
-        docker_image_tag: ${{ steps.prep.outputs.BUILD_ID }}
+#        docker_image_tag: ${{ steps.prep.outputs.BUILD_ID }}
+        docker_image_tag: 'latest'
         requirements_file: 'actions/requirements.txt'
-
