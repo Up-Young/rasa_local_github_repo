@@ -53,8 +53,7 @@ x-rasa-credentials: &rasa-credentials
 
 x-rasa-services: &default-rasa-service
   restart: always
-  # image: "rasa/rasa:${RASA_VERSION}-full"
-  image: "rasa/rasa:${RASA_VERSION:-stable}-full"
+  image: "rasa/rasa:${RASA_VERSION}-full"
   volumes:
       - ./.config:/.config
   expose:
@@ -180,9 +179,9 @@ services:
   nginx:
     restart: always
     image: "nginx:1.19"
-    ports:
-      - "80:8080"
-      - "443:8443"
+    # ports:
+    #   - "80:8080"
+    #   - "443:8443"
     volumes:
       - ./certs:/etc/certs
       - ./nginx-config-files/nginx.conf:/etc/nginx/nginx.conf

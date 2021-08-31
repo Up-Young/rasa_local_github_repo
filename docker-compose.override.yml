@@ -1,9 +1,12 @@
-version: '3.4'
+version: "3.4"
+
 services:
+
   app:
     image: "yangyoungyoung/action_server"
 
   nginx:
+
     ports:
-      - "9780:8080"
+      - "9660:8080"
       - "443:8443"
